@@ -5,7 +5,9 @@
   <!-- Left side column. contains the logo and sidebar -->
   {{> mainSidebar}}
   <!-- Content Wrapper. Contains page content -->
-  {{> contenidoDashboard}}
+  <div class="content-wrapper">
+    {{> yield}}
+  </div>
   <!-- /.content-wrapper -->
   <!-- Main Footer -->
   {{> mainFooter}}
@@ -225,11 +227,6 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-</template>
-<template name="contenidoDashboard">
-  <div class="content-wrapper">
-    {{> yield}}
-  </div>
 </template>
 <template name="mainFooter">
   <footer class="main-footer">
