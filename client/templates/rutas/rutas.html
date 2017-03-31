@@ -1,0 +1,56 @@
+<template name="rutas">
+	<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Rutas</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tbody><tr>
+                  <th>Número de cliente</th>
+                  <th>Cliente</th>
+                  <th>Sucursal</th>
+                  <th>Número de ruta</th>
+                </tr>
+                <tr>
+                  <td>183</td>
+                  <td>Super salads</td>
+                  <td>Gomez Morin</td>
+                  <td>10</td>
+                </tr>
+                {{#each rutas}}
+                  {{> RutaOuter}}
+                {{/each}}
+              </tbody></table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <a href="#" class="btn btn-sm btn-info btn-flat pull-left guardar">Crear nueva ruta</a>
+            </div>
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+</template>
+<template name="RutaOuter">
+  <tr>
+    <td>183</td>
+    <td>Super salads</td>
+    <td>Gomez Morin</td>
+    <td>10</td>
+  </tr>
+</template>
