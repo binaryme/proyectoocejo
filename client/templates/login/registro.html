@@ -1,21 +1,33 @@
-<template name="login">
+<template name="registro">
 {{#AdminLTE}}
 <div class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>De</b>Ocejo</a>
+    <a href=""><b>De</b>Ocejo</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Ingresa tus datos para entrar</p>
 
-    <form id="login" method="post">
+    <form id="registro" method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" name="password" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" name="confirmpassword" placeholder="Confirmar Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="tel" class="form-control" name="telefono" placeholder="Teléfono">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -27,7 +39,7 @@
       </div>
     </form>
 
-    <a href="/registro" class="text-center">Registro</a>
+    <a href="/login" class="text-center">¿Ya tienes cuenta?</a>
 
   </div>
   <!-- /.login-box-body -->
