@@ -38,13 +38,14 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="#" class="btn btn-sm btn-info btn-flat pull-left guardar">Crear nueva ruta</a>
+              <a href="#" class="btn btn-sm btn-info btn-flat pull-left" data-toggle="modal" data-target="#newOrden">Crear nueva ruta</a>
             </div>
           </div>
           <!-- /.box -->
         </div>
       </div>
     </section>
+    {{> nuevaOrden}}
 </template>
 <template name="OrdenOuter">
   <tr>
@@ -53,4 +54,88 @@
     <td>Gomez Morin</td>
     <td>10</td>
   </tr>
+</template>
+<template name="nuevaOrden">
+  <div id="newOrden" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Crear nueva Orden</h4>
+      </div>
+      <div class="modal-body">
+      <form id="nuevaOrden" class="row">
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="cliente" type="text" max-size="20" required placeholder="Num. de cliente">
+        </div>
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="nombre" type="text" required placeholder="Nombre de la empresa">
+        </div>
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="calle" type="text" required placeholder="Calle #">
+        </div>
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="colonia" type="text" required placeholder="Colonia">
+        </div>
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="postalcode" type="text" required placeholder="Código Postal">
+        </div>
+        <div class="col-xs-6 form-group">
+          <input class="form-control" name="latitud" type="text" required placeholder="Latitud">
+        </div>
+        <div class="col-xs-6 form-group">
+          <input class="form-control" name="longitud" type="text" required placeholder="Longitud">
+        </div>
+        <div class="col-xs-12 form-group">
+          <select name="sucursal" class="form-control" required>
+              <option>Sucursal</option>
+              <option>Aguascalientes</option>
+              <option>Baja California</option>
+              <option>Baja California Sur</option>
+              <option>Campeche</option>
+              <option>Coahuila de Zaragoza</option>
+              <option>Colima</option>
+              <option>Chiapas</option>
+              <option>Chihuahua</option>
+              <option>Distrito Federal</option>
+              <option>Durango</option>
+              <option>Guanajuato</option>
+              <option>Guerrero</option>
+              <option>Hidalgo</option>
+              <option>Jalisco</option>
+              <option>México</option>
+              <option>Michoacán de Ocampo</option>
+              <option>Morelos</option>
+              <option>Nayarit</option>
+              <option>Nuevo León</option>
+              <option>Oaxaca</option>
+              <option>Puebla</option>
+              <option>Querétaro</option>
+              <option>Quintana Roo</option>
+              <option>San Luis Potosí</option>
+              <option>Sinaloa</option>
+              <option>Sonora</option>
+              <option>Tabasco</option>
+              <option>Tamaulipas</option>
+              <option>Tlaxcala</option>
+              <option>Veracruz de Ignacio de la Llave</option>
+              <option>Yucatán</option>
+              <option>Zacatecas</option>
+          </select>
+        </div>
+        <div class="col-xs-12 form-group">
+          <input class="form-control" name="ciudad" type="text" required placeholder="Ciudad">
+        </div>
+        <div class="col-xs-12">
+          <center>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </center>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
