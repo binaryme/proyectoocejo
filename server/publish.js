@@ -4,3 +4,6 @@ Meteor.publish('inventario', function () {
 Meteor.publish('rutas', function () {
   return Rutas.find();
 });
+Meteor.publish('ordenes', function () {
+  return Ordenes.find();
+});
