@@ -38,6 +38,15 @@
     padding: 10px 5px 18px 15px;
 }
 
+/*Content wrapper*/
+.content-wrapper, .right-side {
+    background-color: #f5f5f5!important;
+    background-image: url('/Lechuga Ocejo@1x.svg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 56% 45%; 
+}
+
 /*Search*/
 .skin-green .sidebar-form input[type="text"], .skin-green .sidebar-form .btn {
     background-color: #bbc5b0!important;
