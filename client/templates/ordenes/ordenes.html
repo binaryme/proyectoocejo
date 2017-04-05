@@ -19,22 +19,18 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tbody><tr>
-                  <th>Número de cliente</th>
-                  <th>Cliente</th>
-                  <th>Sucursal</th>
-                  <th>Número de ruta</th>
-                </tr>
-                <tr>
-                  <td>183</td>
-                  <td>Super salads</td>
-                  <td>Gomez Morin</td>
-                  <td>10</td>
-                </tr>
-                {{#each ordenes}}
-                  {{> OrdenOuter}}
-                {{/each}}
-              </tbody></table>
+                <tbody>
+                  <tr>
+                   <th>No. Orden</th>
+                   <th>Descripción</th>
+                   <th>Cliente</th>
+                   <th>Sucursal</th>
+                  </tr>
+                  {{#each ordenes}}
+                    {{> OrdenOuter}}
+                  {{/each}}
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
@@ -49,10 +45,10 @@
 </template>
 <template name="OrdenOuter">
   <tr>
-    <td>183</td>
-    <td>Super salads</td>
-    <td>Gomez Morin</td>
-    <td>10</td>
+    <td>{{noorden}}</td>
+    <td>{{descripcion}}</td>
+    <td>{{cliente}}</td>
+    <td>{{sucursal}}</td>
   </tr>
 </template>
 <template name="nuevaOrden">
