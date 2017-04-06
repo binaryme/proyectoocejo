@@ -22,7 +22,7 @@
                 <tbody>
                   <tr>
                    <th>No. Orden</th>
-                   <th>Descripción</th>
+                   <th>Descripción de orden</th>
                    <th>Cliente</th>
                    <th>Sucursal</th>
                   </tr>
@@ -34,7 +34,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="#" class="btn btn-sm btn-info btn-flat pull-left" data-toggle="modal" data-target="#newOrden">Crear nueva ruta</a>
+              <a href="#" class="btn btn-sm btn-info btn-flat pull-left" data-toggle="modal" data-target="#newOrden">Crear nueva orden</a>
             </div>
           </div>
           <!-- /.box -->
@@ -45,10 +45,11 @@
 </template>
 <template name="OrdenOuter">
   <tr>
-    <td>{{noorden}}</td>
-    <td>{{descripcion}}</td>
-    <td>{{cliente}}</td>
-    <td>{{sucursal}}</td>
+      <td><a href="{{pathFor 'OrdenInner'}}">{{noorden}}</a></td>
+      <td>{{descripcion}}</td>
+      <td>{{cliente}}</td>
+      <td>{{sucursal}}</td>
+    
   </tr>
 </template>
 <template name="nuevaOrden">
