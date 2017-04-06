@@ -24,7 +24,7 @@ Template.login.events({
             } else {
                 if(admin)
                 {
-                  Router.go('admin');
+                  Router.go('/');
                 }
                 else
                 {
@@ -72,7 +72,7 @@ Template.registro.events({
                   Meteor.users.update({_id:Meteor.user()._id}, {$set:{"profile.name":nombre,"profile.phone":telefono,"profile.email":email}});
                   if(admin)
                   {
-                    Router.go('admin');
+                    Router.go('/');
                   }
                   else
                   {
