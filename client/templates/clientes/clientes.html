@@ -25,12 +25,14 @@
                   <th>Sucursal</th>
                   <th>Número de ruta</th>
                 </tr>
-                <tr>
-                  <td>183</td>
-                  <td>Super salads</td>
-                  <td>Gomez Morin</td>
-                  <td>10</td>
-                </tr>
+                {{#each listaUsuarios}}
+                  <tr>
+                    <td>{{_id}}</td>
+                    <td>{{profile.email}}</td>
+                    <td>{{profile.name}}</td>
+                    <td>{{profile.phone}}</td>
+                  </tr>
+                {{/each}}
                 <tr>
                   <td>219</td>
                   <td>Super salads</td>
