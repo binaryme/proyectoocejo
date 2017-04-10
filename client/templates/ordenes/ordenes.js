@@ -11,7 +11,7 @@ Template.hello.helpers({
 });
 */
 Template.ordenes.events({
-  	'click a.guardar': function(event, template) 
+  	'click a.guardar-orden': function(event, template) 
   	{
   		event.preventDefault();
       	//var id = Router.current().params._id; //el contexto en el que va a editar
