@@ -23,38 +23,44 @@ Template.ordenes.events({
           date: new Date()
       });
     },
-    'submit form': function(event){
-        event.preventDefault();
-        var cliente = $('[name=cliente]').val();
-        var nombre = $('[name=nombre]').val();
-        var calle = $('[name=calle]').val();
-        var colonia = $('[name=colonia]').val();
-        var postalcode = $('[name=postalcode]').val();
-        var latitud = $('[name=latitud]').val();
-        var longitud = $('[name=longitud]').val();
-        var sucursal = $('[name=sucursal]').val();
-        var ciudad = $('[name=ciudad]').val();
-        $('[name=cliente]').val('');
-        $('[name=nombre]').val('');
-        $('[name=calle]').val('');
-        $('[name=colonia]').val('');
-        $('[name=latitud]').val('');
-        $('[name=longitud]').val('');
-        $('[name=ciudad]').val('');
-        var ordenes = Ordenes.insert({
-          cliente: cliente, 
-          nombre: nombre, 
-          calle: calle, 
-          colonia: colonia, 
-          postalcode: postalcode, 
-          estado: sucursal, 
-          ciudad: ciudad, 
-          latitud: latitud,
-          longitud: longitud, 
-          user: Meteor.userId(), 
-          date: new Date()
-        });
-        alert('Orden guardada correctamente.');
-        $('#newOrden').modal('hide');
+    'click tr.orden': function(event, template)
+    {
+      var ruta = '/orden/'+this._id;
+      Router.go(ruta);
+      console.log(ruta);
     }
+    //'submit form': function(event){
+    //    event.preventDefault();
+    //    var cliente = $('[name=cliente]').val();
+    //    var nombre = $('[name=nombre]').val();
+    //    var calle = $('[name=calle]').val();
+    //    var colonia = $('[name=colonia]').val();
+    //    var postalcode = $('[name=postalcode]').val();
+    //    var latitud = $('[name=latitud]').val();
+    //    var longitud = $('[name=longitud]').val();
+    //    var sucursal = $('[name=sucursal]').val();
+    //    var ciudad = $('[name=ciudad]').val();
+    //    $('[name=cliente]').val('');
+    //    $('[name=nombre]').val('');
+    //    $('[name=calle]').val('');
+    //    $('[name=colonia]').val('');
+    //    $('[name=latitud]').val('');
+    //    $('[name=longitud]').val('');
+    //    $('[name=ciudad]').val('');
+    //    var ordenes = Ordenes.insert({
+    //      cliente: cliente, 
+    //      nombre: nombre, 
+    //      calle: calle, 
+    //      colonia: colonia, 
+    //      postalcode: postalcode, 
+    //      estado: sucursal, 
+    //      ciudad: ciudad, 
+    //      latitud: latitud,
+    //      longitud: longitud, 
+    //      user: Meteor.userId(), 
+    //      date: new Date()
+    //    });
+    //    alert('Orden guardada correctamente.');
+    //    $('#newOrden').modal('hide');
+    //}
 });
