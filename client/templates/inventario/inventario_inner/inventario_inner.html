@@ -1,0 +1,83 @@
+<template name="InventarioInner">
+{{#each producto}}
+	<section class="content">
+		<div class="row">
+			<div class="col-md-12 box">
+        <div class="col-md-11">
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-block btn-danger btn-flat borrar-producto"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        </div>
+        <div class="col-md-5"> 
+        	<p class="text-center mt30">
+            {{#if Template.subscriptionsReady}}  
+        		<img class="cambiar-foto-producto img-responsive" src="{{fotoProducto}}" alt="lechuga">
+            {{/if}}
+            <input type='file' name='…' class='fotoProducto display-hidden'>
+        	</p>                                          
+        </div>
+        <div class="col-md-7">
+            <h2 class="font-bold m-b-xs">
+                {{> editableText collection="inventario" field="Descripcion" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}
+            </h2>
+            <h4>Línea: {{> editableText collection="inventario" field="Linea" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
+                <h4>Stock: {{> editableText collection="inventario" field="Stock" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
+                <h4>Etiqueta: {{> editableText collection="inventario" field="Etiqueta" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
+            <div class="m-t-md">
+                <h4 class="product-main-price">Precio Unitario: {{> editableText collection="inventario" field="ValorDeStock" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
+                <h4 class="product-main-price">Valor de stock: {{> editableText collection="inventario" field="PrecioUnitario" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
+            	<h4>Fecha de registro (incluye timestamp): {{> editableText collection="inventario" field="FechaDeRegistro" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
+            </div>
+            <br>
+        </div><!-- col md 7-->
+      </div>
+    </div><!-- row-->
+    <!-- Button trigger modal -->
+    {{> fileManager}}
+  </section>
+{{/each}}
+</template>
+<template name="fileManager">
+      <!-- Modal -->
+      <div class="modal fade" id="fileManager" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Administrador de imágenes</h4>
+            </div>
+            <div class="modal-body">
+                  <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                          <tbody>
+                              <tr>
+                                <th>Imágen</th>
+                                <th>Nombre</th>
+                                <th>Última edición</th>
+                                <th>Tamaño</th>
+                                <th>Borrar</th>
+                              </tr>
+                              {{#each images}} 
+                                {{#if Template.subscriptionsReady}}     
+                                  <tr class="producto">
+                                      <td><img src="/cfs/files/images/{{_id}}" class="img-responsive mh50" alt="lechuga"></td>
+                                      <td>{{this.name}}</td>
+                                      <td>{{this.updatedAt}}</td>
+                                      <td>{{this.size}}</td>
+                                      <td class="borrar-imagen">X</td>
+                                  </tr> 
+                                {{/if}} 
+                              {{/each}}         
+                          </tbody>
+                        </table>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default subir-foto">Subir foto</button>
+              <input type='file' name='…' class='subirFoto display-hidden'>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar administrador</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</template>
