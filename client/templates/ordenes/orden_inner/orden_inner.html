@@ -24,7 +24,6 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <img src="/Lechuga Ocejo@1x.svg" style="height: 50px;"> De ocejo
-            <small class="pull-right">Fecha de creación: 2/10/2014</small>
           </h2>
         </div>
         <!-- /.col -->
@@ -71,59 +70,26 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>ZANAHORIA RALLADA</td>
-              <td>Precortados</td>
-              <td>Mr. Lucky</td>
-              <td>$64.50</td>
-            </tr>
+            {{#each inventarioEnOrden}}
+              <tr>
+                <td>1</td>
+                <td>ZANAHORIA RALLADA</td>
+                <td>Precortados</td>
+                <td>Mr. Lucky</td>
+                <td>$64.50</td>
+              </tr>
+            {{/each}}
             </tbody>
           </table>
         </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
-      <!--
-      <div class="row">
-        <div class="col-xs-12">
-          <p class="lead">Amount Due 2/22/2014</p>
-          <div class="table-responsive">
-            <table class="table">
-              <tbody><tr>
-                <th style="width:50%">Subtotal:</th>
-                <td>$250.30</td>
-              </tr>
-              <tr>
-                <th>Tax (9.3%)</th>
-                <td>$10.34</td>
-              </tr>
-              <tr>
-                <th>Shipping:</th>
-                <td>$5.80</td>
-              </tr>
-              <tr>
-                <th>Total:</th>
-                <td>$265.24</td>
-              </tr>
-            </tbody></table>
-          </div>
-        </div>
-      </div>
-      -->
-
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
           {{> ListaProductos}}
-          <!--<button class="btn btn-default" data-toggle="modal" data-target="#agregarALaOrden">
-          Agregar a la orden
-          </button>-->
-          <!--{{> ModalAgregarALaOrden}}-->
-          <!--a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimir</a>-->
-          <!--<button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-            <i class="fa fa-download"></i> Generate PDF
-          </button>-->
+
         </div>
       </div>
 	</section>
@@ -143,41 +109,57 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
-              <div class="mailbox-controls">
-                <div class="pull-right">
-                  1-50/200
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
-              <div class="table-responsive mailbox-messages">
-                <table class="table table-hover table-striped">
-                  <tbody>
-                    {{#each inventario}}
-                      {{> ProductoAgregar}}
-                    {{/each}}
-                  </tbody>
-                </table>
-                <!-- /.table -->
-              </div>
+              {{#each inventario}}
+                {{> ProductoAgregar}}
+              {{/each}}
               <!-- /.mail-box-messages -->
             </div>
           </div>
 </template>
+<!--<template name="ProductoAgregar">
+  <div class="col-md-4">
+  <svg class="producto-tarjeta" width="264px" height="400px" viewBox="0 0 264 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <desc>Producto</desc>
+      <defs>
+          <rect id="path-1" x="0" y="0" width="264" height="400" rx="12"></rect>
+          <path d="M0,280 L264,280 L264,387.999923 C264,394.627383 258.636895,400 251.992163,400 L12.0078366,400 C5.37609157,400 0,394.630321 0,387.999923 L0,280 Z" id="path-3"></path>
+      </defs>
+      <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Producto">
+              <g id="Weather">
+                  <mask id="mask-2" fill="white">
+                      <use xlink:href="#path-1"></use>
+                  </mask>
+                  <use id="Rectangle-28" fill="#629133" xlink:href="#path-1"></use>
+                  <mask id="mask-4" fill="white">
+                      <use xlink:href="#path-3"></use>
+                  </mask>
+                  <use id="Rectangle-28" fill="#FFFFFF" opacity="0.291627799" style="mix-blend-mode: soft-light;" xlink:href="#path-3"></use>
+                  <text id="San-Francisco" font-family=".SFNSDisplay, .SF NS Display" font-size="20" font-weight="normal" line-spacing="26" fill="#FFFFFF">
+                      <tspan x="50%" text-anchor="middle" y="235">{{descripcion}}</tspan>
+                  </text>
+                  <text id="San-Francisco-Copy" font-family=".AppleSystemUIFont" font-size="12" font-weight="normal" line-spacing="26" fill="#FFFFFF">
+                      <tspan x="50%" text-anchor="middle" y="256">San Francisco</tspan>
+                  </text>
+                  <text id="28" font-family=".SFNSDisplay, .SF NS Display" font-size="20" font-weight="normal" line-spacing="45" fill="#FFFFFF">
+                      <tspan x="50%" text-anchor="middle" y="196">{{linea}}</tspan>
+                  </text>
+              </g>
+              <circle id="Oval-41-Copy-3" stroke="#FFFFFF" transform="translate(194.000000, 344.000000) rotate(-180.000000) translate(-194.000000, -344.000000) " cx="194" cy="344" r="18.5"></circle>
+              <path d="M192.787587,344.2018 L187.695145,349.294242 L189.109359,350.708456 L194.2018,345.616014 L199.294242,350.708456 L200.708456,349.294242 L195.616014,344.2018 L200.708456,339.109359 L199.294242,337.695145 L194.2018,342.787587 L189.109359,337.695145 L187.695145,339.109359 L192.787587,344.2018 Z" id="Combined-Shape" fill="#FFFFFF" transform="translate(194.201800, 344.201800) rotate(45.000000) translate(-194.201800, -344.201800) "></path>
+              <path d="M66.3935557,357.617688 L67.9928042,348.293354 L68.0372403,348.034271 L67.8490058,347.850788 L61.0744806,341.247258 L70.4366442,339.886856 L70.6967778,339.849056 L70.8131131,339.613335 L75,331.129776 L79.1868869,339.613335 L79.3032222,339.849056 L79.5633558,339.886856 L88.9255194,341.247258 L82.1509942,347.850788 L81.9627597,348.034271 L82.0071958,348.293354 L83.6064443,357.617688 L75.2326706,353.215334 L75,353.093012 L74.7673294,353.215334 L66.3935557,357.617688 Z" id="Star-1-Copy-4" stroke="#FFFFFF"></path>
+          </g>
+      </g>
+  </svg>
+</div>
+</template>-->
 <template name="ProductoAgregar">
-  <tr>
-    <td><div class="icheckbox_flat-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox"></div></td>
-    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-    <td class="mailbox-name"><a href="read-mail.html">Zanahoria rallada</a></td>
-    <td class="mailbox-subject"><b>
-      Caja con 100 zanahorias</b>
-    </td>
-    <td>
-      <select class="1-100"></select>
-    </td>
-  </tr>
+  <div class="col-md-4">
+    <div class="producto-tarjeta">
+      <p class="text-center">
+      <img class="mh160" src="{{fotoProducto}}"/>
+      </p>
+      {{Nombreproducto}}
+    </div>
+  </div>
 </template>
