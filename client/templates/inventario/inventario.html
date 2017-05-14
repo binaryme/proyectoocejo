@@ -17,6 +17,10 @@
               </div>
             </div>
             <!-- /.box-header -->
+            <div class="clearfix">
+              <a href="#" class="btn btn-block btn-info btn-flat pull-left guardar">Crear nuevo producto</a>
+              <a href="#" class="btn btn-block btn-info btn-flat pull-left guardar-como-pdf">Convertir a Excel</a>
+            </div>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tbody><tr>
@@ -26,11 +30,8 @@
                   <th>Imágen</th>
                   <th>Etiqueta</th>
                   <th>Fecha de registro</th>
-                  <th>Timestamp</th>
                   <th>Precio unitario</th>
                   <th>Valor de stock</th>
-                  <th>Código de barras</th>
-                  <th>Código alter</th>
                 </tr>
     			{{#each inventario}}
     				{{> InventarioOuter}}
@@ -38,9 +39,6 @@
               </tbody></table>
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="#" class="btn btn-sm btn-info btn-flat pull-left guardar">Crear nuevo producto</a>
-            </div>
           </div>
           <!-- /.box -->
         </div>
@@ -49,18 +47,15 @@
     {{> CrearProducto}} <!-- modal crear producto -->
 </template>
 <template name="InventarioOuter">
-    <tr>
-      <td>Blizard</td>
-      <td>Precortados</td>
-      <td>90</td>
-      <td>Imágen</td>
-      <td>Etiqueta</td>
-      <td>09/03/2017</td>
-      <td>09/02/17 10:39</td>
-      <td>$1,00</td>
-      <td>$0.00</td>
-      <td>111222</td>
-      <td></td>
+    <tr class="producto">
+      <td>{{Descripcion}}</td>
+      <td>{{Linea}}</td>
+      <td>{{Stock}}</td>
+      <td><img src="{{fotoProducto}}" class="img-responsive mh50" alt="{{nombreProducto}}"></td>
+      <td>{{Etiqueta}}</td>
+      <td>{{FechaDeRegistro}}</td>
+      <td>{{PrecioUnitario}}</td>
+      <td>{{ValorDeStock}}</td>
     </tr>
 </template>
 <template name="CrearProducto">
