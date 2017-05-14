@@ -1,0 +1,34 @@
+svg.producto-tarjeta {
+	text-align: center;
+	max-width: 90%;
+}
+
+svg {
+	pointer-events: none; /* so that you can resize the element */
+}
+
+text {
+	text-anchor: middle;
+	pointer-events: auto; /* Cancel the svg’s pointer-events */
+}
+
+table tr {
+    cursor: pointer;
+}
+
+.mt30 {
+	margin-top: 30px;
+}
+
+.display-hidden {
+	display: none!important;
+}
+
+.btn-info {
+    background-color: #5E8039!important;
+    border-color: #5E8039!important;
+}
+
+.mh50 {
+	max-height: 50px;
+}

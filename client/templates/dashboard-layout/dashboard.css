@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 .content
 {
-	height: 100rem;
+	height: 80rem;
 }
 .skin-green .sidebar-menu>li.header {
     color: #fff!important;
@@ -9,7 +9,7 @@
 }
 
 .sidebar-menu>li>a {
-    padding: 22px 12px 22px 15px!important;
+    padding: 30px 12px 30px 15px!important;
     display: block;
 }
 
