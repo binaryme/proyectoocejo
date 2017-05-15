@@ -2,18 +2,15 @@
 /* OrdenInner: Event Handlers */
 /*****************************************************************************/
 Template.ProductoAgregar.events({
-	'click input': function(event, template)
+	'click .add': function(event, template)
 	  	{
-	      	var checked = $(event.currentTarget).is(":checked"); //tomo el name del input, para usar como key en mi key, value
+	      	//var checked = $(event.currentTarget).is(":checked"); //tomo el name del input, para usar como key en mi key, value
 	      	var name = "orden";
 	      	var value = Router.current().params._id; //le pone al objeto de inventario el id de la orden actual para hacer join
 	      	var info = _.object([name], [value]); //convierto mi key value en un objeto para insertar en mi base de datos
-			if (checked)  {
-				Inventario.update({_id: this._id}, {$set: info});
-			} else {
-				Inventario.update({_id: this._id}, {$set: {orden : ""} });
-			}
-			console.log(this._id);
+				  Inventario.update({_id: this._id}, {$set: info});
+				  //Inventario.update({_id: this._id}, {$set: {orden : ""} });
+          console.log(this._id);
 	  	}
 });
 
