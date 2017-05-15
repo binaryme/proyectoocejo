@@ -98,10 +98,9 @@
         <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Agrega productos a la orden</h3>
-
               <div class="box-tools pull-right">
                 <div class="has-feedback">
-                  <input type="text" class="form-control input-sm" placeholder="Buscar producto">
+                  <input type="text" class="form-control input-sm search-material" placeholder="Buscar producto">
                   <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
               </div>
@@ -155,11 +154,22 @@
 </template>-->
 <template name="ProductoAgregar">
   <div class="col-md-4">
-    <div class="producto-tarjeta">
+    <div class="producto-tarjeta z-depth-3">
       <p class="text-center">
       <img class="mh160" src="{{fotoProducto}}"/>
       </p>
-      {{Nombreproducto}}
+      <p class="text-center">
+      {{Descripcion}}
+      </p>
+      <p class="text-center">
+        {{Linea}}
+      </p>
+        <a href="#" class="star btn btn-half">
+          <i class="fa fa-star-o fa-2x"></i>
+        </a>
+        <a href="#" class="add btn btn-half">
+          <i class="fa fa-plus-circle fa-2x" ></i>
+        </a>
     </div>
   </div>
 </template>
