@@ -1,3 +1,4 @@
+
 Meteor.publish('inventario', function () {
   return Inventario.find();
 });
@@ -6,6 +7,9 @@ Meteor.publish('rutas', function () {
 });
 Meteor.publish('ordenes', function () {
   return Ordenes.find();
+});
+Meteor.publish("invoice_items", function() {
+	return InvoiceItems.find({ownerId:this.userId}, {});
 });
 Meteor.publish("users", function () {
   return Meteor.users.find({}, {fields: {profile: 1}});
@@ -25,3 +29,4 @@ update: function() { return true; },
 remove: function() { return false; },
 download: function() {return true;},
 });
+
