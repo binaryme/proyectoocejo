@@ -20,7 +20,9 @@ Template.ordenes.events({
           descripcion: 'Orden de ejemplo', 
           cliente: 'Cliente ejemplo', 
           sucursal: 'Sucursal ejemplo',  
-          date: new Date()
+          date: new Date(),
+          latitud: null,
+          longitud: null
       });
     },
     'click tr.orden': function(event, template)
