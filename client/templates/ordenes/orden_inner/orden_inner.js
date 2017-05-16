@@ -4,26 +4,25 @@
 Template.ProductoAgregar.events({
 	'click .add': function(event, template)
 	  	{
-	      	//var checked = $(event.currentTarget).is(":checked"); //tomo el name del input, para usar como key en mi key, value
-	      	var name = "orden";
-	      	var value = Router.current().params._id; //le pone al objeto de inventario el id de la orden actual para hacer join
-	      	var info = _.object([name], [value]); //convierto mi key value en un objeto para insertar en mi base de datos
-				  var original = Inventario.find({_id: this._id})
-          var productId = Inventario.insert({
-            idOriginal: this._id, 
-            orden: value, 
-            Descripcion: this.Descripcion,
-            Linea: this.Linea,
-            Stock: this.Stock,
-            Imagen: this.Imagen,
-            Etiqueta: this.Etiqueta,
-            FechaDeRegistro: this.FechaDeRegistro,
-            PrecioUnitario: this.PrecioUnitario,
-            ValorDeStock: this.ValorDeStock,
-            fotoProducto: this.fotoProducto
-          });
-				  //Inventario.update({_id: this._id}, {$set: {orden : ""} });
-          console.log(productId);
+          var productId = this._id;
+          var Descripcion = Inventario.findOne(productId).Descripcion;
+          var Linea = Inventario.findOne(productId).Linea;
+          var Etiqueta = Inventario.findOne(productId).Etiqueta;
+          var PrecioUnitario = Inventario.findOne(productId).PrecioUnitario;
+          //var descripcion = Inventario.find({productId).Descripcion;
+	      	var ordenId = Router.current().params._id; //le pone al objeto de inventario el id de la orden actual para hacer join
+          var info = {"ordenId": ordenId,
+                      "ownerId": Meteor.user()._id,
+                      "clientId": "clientid", //aún no se pone porque no e agregado clientes a la orden
+                      "Descripcion": Descripcion,
+                      "Linea": Linea,
+                      "Cantidad": 1,
+                      "PrecioUnitario": PrecioUnitario,
+                      "Etiqueta": Etiqueta,
+                      "ValorDelPedido":  PrecioUnitario
+                    };
+				  InvoiceItems.insert(info);
+          console.log(info);
 	  	}
 });
 
@@ -37,20 +36,45 @@ Template.ProductoAgregar.events({
 //		}
 //	}
 //});
-Template.OrdenContenido.helpers({
+Template.OrdenInvoiceItems.helpers({
   inventarioEnOrden: function() {
-    //if (Session.get("searchValue")) {
-      return Inventario.find({orden: this._id});
-    //} else {
-    //  return Reportes.find({});
-    //}
+      return InvoiceItems.find({ordenId: this._id});
   }
 }); 
+
+Template.TablaInvoiceItem.events({
+  'click .borrar-item': function(event, template) {
+    var borrar = confirm("¿Seguro que quieres borrar este item del recibo?");
+    if (borrar){
+      InvoiceItems.remove({_id: this._id});
+    }
+    else{
+      console.log("no borra el item");
+    }
+  }
+});
+
+Template.TablaInvoiceItem.helpers({
+  ValorPedido: function() {
+    var Cantidad = InvoiceItems.findOne(this._id).Cantidad;
+    var PrecioUnitario = InvoiceItems.findOne(this._id).PrecioUnitario;
+    var ValorPedido = Cantidad * PrecioUnitario;
+    var info = {"ValorDelPedido": ValorPedido};
+    InvoiceItems.update({_id: this._id}, {$set: info});
+    return InvoiceItems.findOne(this._id).ValorDelPedido;
+  }
+});
+
+Template.OrdenTotal.helpers({
+  subtotal: function() {
+    return InvoiceItems.find().ValorDelPedido;
+  }
+});
 
 Template.ListaProductos.helpers({
   inventario: function() {
     //if (Session.get("searchValue")) {
-      return Inventario.find({orden: null}, { sort: [["FechaDeRegistro", "desc"]] });
+      return Inventario.find({});
     //} else {
     //  return Reportes.find({});
     //}
@@ -63,18 +87,10 @@ Template.ListaProductos.helpers({
 Template.OrdenInner.onCreated(function () {
 });
 
-Template.OrdenInner.onRendered(function () {
-	Meteor.subscribe("inventario");
-	delay(function() {
-		$(function(){
-    		var $select = $(".1-100");
-    		for (i=1;i<=100;i++){
-    		    $select.append($('<option></option>').val(i).html(i))
-    		}
-		});
-    }, 1000);
-
-
+Template.TablaInvoiceItem.onRendered(function () {
+	//Meteor.subscribe("inventario");
+  //Meteor.subscribe("ordenes");
+  //Meteor.subscribe("ordencontenido");
 });
 
 Template.OrdenInner.onDestroyed(function () {
