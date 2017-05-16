@@ -21,11 +21,11 @@
                 {{> editableText collection="inventario" field="Descripcion" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}
             </h2>
             <h4>Línea: {{> editableText collection="inventario" field="Linea" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
-                <h4>Stock: {{> editableText collection="inventario" field="Stock" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
+                <h4>Stock: {{> editableText collection="inventario" field="Stock" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
                 <h4>Etiqueta: {{> editableText collection="inventario" field="Etiqueta" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
             <div class="m-t-md">
-                <h4 class="product-main-price">Precio Unitario: {{> editableText collection="inventario" field="ValorDeStock" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
-                <h4 class="product-main-price">Valor de stock: {{> editableText collection="inventario" field="PrecioUnitario" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
+                <h4 class="product-main-price">Precio Unitario:  ${{> editableText collection="inventario" field="PrecioUnitario" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
+                <h4 class="product-main-price">Valor de stock: ${{> editableText collection="inventario" field="ValorDeStock" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}} <small class="text-muted">No incluye IVA</small> </h4>
             	<h4>Fecha de registro (incluye timestamp): {{> editableText collection="inventario" field="FechaDeRegistro" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</h4>
             </div>
             <br>
