@@ -8,9 +8,22 @@ Template.ProductoAgregar.events({
 	      	var name = "orden";
 	      	var value = Router.current().params._id; //le pone al objeto de inventario el id de la orden actual para hacer join
 	      	var info = _.object([name], [value]); //convierto mi key value en un objeto para insertar en mi base de datos
-				  Inventario.update({_id: this._id}, {$set: info});
+				  var original = Inventario.find({_id: this._id})
+          var productId = Inventario.insert({
+            idOriginal: this._id, 
+            orden: value, 
+            Descripcion: this.Descripcion,
+            Linea: this.Linea,
+            Stock: this.Stock,
+            Imagen: this.Imagen,
+            Etiqueta: this.Etiqueta,
+            FechaDeRegistro: this.FechaDeRegistro,
+            PrecioUnitario: this.PrecioUnitario,
+            ValorDeStock: this.ValorDeStock,
+            fotoProducto: this.fotoProducto
+          });
 				  //Inventario.update({_id: this._id}, {$set: {orden : ""} });
-          console.log(this._id);
+          console.log(productId);
 	  	}
 });
 
@@ -37,7 +50,7 @@ Template.OrdenContenido.helpers({
 Template.ListaProductos.helpers({
   inventario: function() {
     //if (Session.get("searchValue")) {
-      return Inventario.find({}, { sort: [["score", "desc"]] });
+      return Inventario.find({orden: null}, { sort: [["FechaDeRegistro", "desc"]] });
     //} else {
     //  return Reportes.find({});
     //}
