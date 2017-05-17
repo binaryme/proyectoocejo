@@ -15,7 +15,7 @@ Template.ordenes.events({
   	{
   		event.preventDefault();
       var id = Ordenes.find().count();
-      var ordenes = Ordenes.insert({
+      var orden = Ordenes.insert({
           noorden: id, 
           descripcion: 'Orden de ejemplo', 
           cliente: 'Cliente ejemplo', 
@@ -38,6 +38,8 @@ Template.ordenes.events({
             estado: 'Estado'
           }
       });
+        var ruta = '/orden/'+orden;
+        Router.go(ruta);
     },
     'click tr.orden': function(event, template)
     {
