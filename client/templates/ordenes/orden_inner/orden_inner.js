@@ -66,9 +66,45 @@ Template.TablaInvoiceItem.helpers({
 });
 
 Template.OrdenTotal.helpers({
-  subtotal: function() {
-    return InvoiceItems.find().ValorDelPedido;
-  }
+  //subtotal: function() {
+  //  return InvoiceItems.find({}).ValorDelPedido;
+  //}
+  priceSum: function(){
+      // fetch every items belonging to the currently displayed user
+      var userItems = InvoiceItems.find({
+        "ownerId": Meteor.user()._id
+      }).fetch();
+      // extract the price property in an array
+      var userItemsPrices = _.pluck(userItems, "ValorDelPedido");
+      // compute the sum using a simple array reduction
+      return _.reduce(userItemsPrices, function(sum, price){
+        return sum + parseFloat(price);
+      }, 0);
+  },
+  iva: function(){
+      // fetch every items belonging to the currently displayed user
+      var userItems = InvoiceItems.find({
+        "ownerId": Meteor.user()._id
+      }).fetch();
+      // extract the price property in an array
+      var userItemsPrices = _.pluck(userItems, "ValorDelPedido");
+      // compute the sum using a simple array reduction
+      return _.reduce(userItemsPrices, function(sum, price){
+        return sum + parseFloat(price) * .16;
+      }, 0);
+  },
+  total: function(){
+      // fetch every items belonging to the currently displayed user
+      var userItems = InvoiceItems.find({
+        "ownerId": Meteor.user()._id
+      }).fetch();
+      // extract the price property in an array
+      var userItemsPrices = _.pluck(userItems, "ValorDelPedido");
+      // compute the sum using a simple array reduction
+      return _.reduce(userItemsPrices, function(sum, price){
+        return sum + parseFloat(price) * 1.16;
+      }, 0);
+  },
 });
 
 var options = {
