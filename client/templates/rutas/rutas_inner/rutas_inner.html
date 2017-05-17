@@ -1,0 +1,77 @@
+<template name="RutaInner">
+  {{#each rutas}}
+    {{> ContentHeaderRuta}}
+    {{> RutaContenido}}
+  {{/each}}
+</template>
+
+<template name="ContentHeaderRuta">
+  <section class="content-header">
+      <h1>
+        Ruta No. {{_id}}
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+  </section>
+</template>
+
+<template name="RutaContenido">
+  <section class="invoice">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <img src="/Lechuga Ocejo@1x.svg" style="height: 50px;"> De ocejo
+            <small class="pull-right">Fecha de creación: 2/10/2014</small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+          Info
+          <address>
+            <strong>{{> editableText collection="rutas" field="cliente" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</strong><br>
+            {{> editableText collection="rutas" field="sucursal" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="rutas" field="date" type="date" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="rutas" field="notas" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-8 invoice-col">
+          Asignar Orden
+          <select name="OrdenAsignada"  id="orden" class="form-control">
+            {{#each listaOrdenes}}
+              <option value="{{_id}}">{{cliente}} | {{sucursal}}</option>
+            {{/each}}
+          </select>
+          <address>
+            {{#with ordenSelected }}
+                {{descripcion}}<br>
+                {{cliente}}<br>
+                {{sucursal}}<br>
+            {{/with}}
+          </address>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="row no-print">
+        <div class="col-xs-12">
+          <!--<button class="btn btn-default" data-toggle="modal" data-target="#agregarALaOrden">
+          Agregar a la orden
+          </button>-->
+          <!--{{> ModalAgregarALaOrden}}-->
+          <!--a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimir</a>-->
+          <!--<button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <i class="fa fa-download"></i> Generate PDF
+          </button>-->
+        </div>
+      </div>
+  </section>
+</template>
