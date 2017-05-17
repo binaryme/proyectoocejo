@@ -34,34 +34,33 @@
         <div class="col-sm-4 invoice-col">
           Info
           <address>
-            <strong>{{profile.name}}</strong><br>
-            {{profile.phone}}<br>
-            {{profile.email}}<br>
-            {{profile.phone}}<br>
+            <strong>{{> editableText collection="users" field="profile.nombre" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}</strong><br>
+            {{> editableText collection="users" field="profile.cliente" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.email" type="email" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           Facturación
           <address>
-            RFC<br>
-            Calle<br>
-            Número<br>
-            Colonia<br>
-            Código Postal<br>
-            Población<br>
+            {{> editableText collection="users" field="profile.facturacion.rfc" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.facturacion.calle" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.facturacion.numero" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.facturacion.colonia" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.facturacion.codigoPostal" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.facturacion.poblacion" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           Información de envío
           <address>
-            RFC<br>
-            Calle<br>
-            Número<br>
-            Colonia<br>
-            Código Postal<br>
-            Población<br>
+            {{> editableText collection="users" field="profile.envio.rfc" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.envio.calle" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.envio.numero" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.envio.colonia" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.envio.codigoPostal" type="number" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+            {{> editableText collection="users" field="profile.envio.poblacion" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
           </address>
         </div>
         <!-- /.col -->
