@@ -1,6 +1,8 @@
 /*****************************************************************************/
 /* OrdenInner: Event Handlers */
 /*****************************************************************************/
+Meteor.subscribe('users');
+
 Template.ProductoAgregar.events({
 	'click .add': function(event, template)
 	  	{
@@ -41,6 +43,23 @@ Template.OrdenInvoiceItems.helpers({
       return InvoiceItems.find({ordenId: this._id});
   }
 }); 
+
+Template.OrdenHeader.events({
+   'change select#cliente': function(event) 
+    {
+      event.preventDefault();
+      var id = $('[name=ClienteAsignado]').val();
+      Ordenes.update(Router.current().params._id, {
+        $set: { cliente: id}
+      });
+    }
+});
+
+Template.OrdenHeader.helpers({
+  listaClientesOrden: function () {
+      return Meteor.users.find({});
+   }
+});
 
 Template.TablaInvoiceItem.events({
   'click .borrar-item': function(event, template) {
