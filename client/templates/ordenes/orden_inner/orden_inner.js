@@ -71,6 +71,13 @@ Template.OrdenTotal.helpers({
   }
 });
 
+var options = {
+  keepHistory: 1000 * 60 * 5,
+  localSearch: true
+};
+var fields = ['Descripcion'];
+PackageSearch = new SearchSource('inventario', fields, options);
+
 Template.ListaProductos.helpers({
   inventario: function() {
     //if (Session.get("searchValue")) {
@@ -78,7 +85,26 @@ Template.ListaProductos.helpers({
     //} else {
     //  return Reportes.find({});
     //}
+  },
+  getPackages: function() {
+    return PackageSearch.getData({
+      transform: function(matchText, regExp) {
+        return matchText.replace(regExp, "$&")
+      },
+      sort: {isoScore: -1}
+    });
+  },
+  isLoading: function() {
+    return PackageSearch.getStatus().loading;
   }
+});
+
+Template.ListaProductos.events({
+  "keyup #buscarProducto": _.throttle(function(e) {
+    var text = $(e.target).val().trim();
+    console.log(text);
+    PackageSearch.search(text);
+  }, 200)
 });
 
 /*****************************************************************************/
