@@ -37,3 +37,6 @@ momentjs:moment
 less
 pfafman:filesaver
 lfergon:exportcsv
+meteorhacks:search-source
+meteorhacks:ssr
+check
