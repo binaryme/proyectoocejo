@@ -21,8 +21,22 @@ Template.ordenes.events({
           cliente: 'Cliente ejemplo', 
           sucursal: 'Sucursal ejemplo',  
           date: new Date(),
-          latitud: null,
-          longitud: null
+          proveedor: 
+          {
+            nombre: 'Nombre',
+            calle: 'Calle',
+            colonia: 'Colonia',
+            ciudad: 'Ciudad',
+            estado: 'Estado'
+          },
+          para: 
+          {
+            nombre: 'Nombre',
+            calle: 'Calle',
+            colonia: 'Colonia',
+            ciudad: 'Ciudad',
+            estado: 'Estado'
+          }
       });
     },
     'click tr.orden': function(event, template)
