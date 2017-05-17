@@ -23,16 +23,10 @@
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tbody><tr>
-                  <th>Número de cliente</th>
+                  <th>Número de Ruta</th>
                   <th>Cliente</th>
                   <th>Sucursal</th>
-                  <th>Número de ruta</th>
-                </tr>
-                <tr>
-                  <td>183</td>
-                  <td>Super salads</td>
-                  <td>Gomez Morin</td>
-                  <td>10</td>
+                  <th>Orden Asignada</th>
                 </tr>
                 {{#each rutas}}
                   {{> RutaOuter}}
@@ -47,10 +41,10 @@
     </section>
 </template>
 <template name="RutaOuter">
-  <tr>
-    <td>183</td>
-    <td>Super salads</td>
-    <td>Gomez Morin</td>
-    <td>10</td>
+  <tr class="ruta">
+    <td>{{numRuta}}</td>
+    <td>{{cliente}}</td>
+    <td>{{sucursal}}</td>
+    <td>{{orden}}</td>
   </tr>
 </template>
