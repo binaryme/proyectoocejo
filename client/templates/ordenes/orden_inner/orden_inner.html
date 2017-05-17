@@ -123,7 +123,7 @@
           <h3 class="box-title">Agrega productos a la orden</h3>
           <div class="box-tools pull-right">
             <div class="has-feedback">
-              <input type="text" class="form-control input-sm search-material" placeholder="Buscar producto">
+              <input type="text" class="form-control input-sm search-material" id="buscarProducto" placeholder="Buscar producto">
               <span class="glyphicon glyphicon-search form-control-feedback"></span>
             </div>
           </div>
@@ -131,9 +131,12 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body no-padding">
-          {{#each inventario}}
-            {{> ProductoAgregar}}
-          {{/each}}
+        {{#if getPackages}}
+            {{#each getPackages}}
+              {{ >ProductoAgregar }}
+            {{/each}}
+        {{else}}
+        {{/if}}
           <!-- /.mail-box-messages -->
         </div>
       </div>
