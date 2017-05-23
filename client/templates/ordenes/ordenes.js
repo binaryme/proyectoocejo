@@ -21,25 +21,11 @@ Template.ordenes.events({
           cliente: 'Cliente ejemplo', 
           sucursal: 'Sucursal ejemplo',  
           date: new Date(),
-          proveedor: 
-          {
-            nombre: 'Nombre',
-            calle: 'Calle',
-            colonia: 'Colonia',
-            ciudad: 'Ciudad',
-            estado: 'Estado'
-          },
-          para: 
-          {
-            nombre: 'Nombre',
-            calle: 'Calle',
-            colonia: 'Colonia',
-            ciudad: 'Ciudad',
-            estado: 'Estado'
-          }
+          proveedor: Meteor.user().profile.proveedor,
+          direccionproveedor: Meteor.user().profile.direccion
       });
-        var ruta = '/orden/'+orden;
-        Router.go(ruta);
+      var ruta = '/orden/'+orden;
+      Router.go(ruta);
     },
     'click tr.orden': function(event, template)
     {
