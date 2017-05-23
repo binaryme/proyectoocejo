@@ -135,6 +135,9 @@
               {{ >ProductoAgregar }}
             {{/each}}
         {{else}}
+          {{#each checked}}
+              {{ >ProductoAgregar }}
+          {{/each}}
         {{/if}}
           <!-- /.mail-box-messages -->
         </div>

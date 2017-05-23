@@ -2,6 +2,9 @@
 Meteor.publish('inventario', function () {
   return Inventario.find();
 });
+Meteor.publish('star_products', function () {
+  return StarProducts.find();
+});
 Meteor.publish('rutas', function () {
   return Rutas.find();
 });

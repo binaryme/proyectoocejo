@@ -2,6 +2,7 @@
 /* OrdenInner: Event Handlers */
 /*****************************************************************************/
 Meteor.subscribe('users');
+Meteor.subscribe('star_products');
 
 Template.ProductoAgregar.events({
 	'click .add': function(event, template)
@@ -25,19 +26,33 @@ Template.ProductoAgregar.events({
                     };
 				  InvoiceItems.insert(info);
           console.log(info);
-	  	}
+	  	},
+      'click .star': function(event, template)
+      {
+          var productId = this._id;
+          StarProducts.insert( { productId: productId, userId: Meteor.user()._id}
+            , function( error, result) { 
+              if ( error ) console.log ( error ); //info about what went wrong
+              else console.log ( result ); //the _id of new object if successful
+            }
+          );
+          //InvoiceItems.update(Router.current().params._id, {
+          //  $set: { cliente: id}
+          //});
+      }
 });
 
 /*****************************************************************************/
 /* ListaProductos: Helpers */
 /*****************************************************************************/
-//Template.ProductoAgregar.helpers({
-//	checked: function() {
-//		if Inventario.find({this._id, noorden: null}) {
-//			return "Checked";
-//		}
-//	}
-//});
+Template.ListaProductos.helpers({
+  checked: function() {
+    var products = StarProducts.find({userId:Meteor.user()._id}).map(function (doc) {
+      return doc.productId;
+    });
+    return Inventario.find({_id: { $in: products }})
+  }
+});
 Template.OrdenInvoiceItems.helpers({
   inventarioEnOrden: function() {
       return InvoiceItems.find({ordenId: this._id});
