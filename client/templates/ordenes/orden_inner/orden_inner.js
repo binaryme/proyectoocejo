@@ -99,6 +99,8 @@ Template.OrdenTotal.helpers({
       return _.reduce(userItemsPrices, function(sum, price){
         return sum + parseFloat(price);
       }, 0);
+      //var ordenId = Router.current().params._id; //le pone al objeto de inventario el id de la orden actual para hacer join
+      //var info = {"Subtotal": precio};
   },
   iva: function(){
       // fetch every items belonging to the currently displayed user
