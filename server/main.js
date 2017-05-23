@@ -1,8 +1,3 @@
-import { Meteor } from 'meteor/meteor';
-
-Meteor.startup(() => {
-});
-
 SearchSource.defineSource('inventario', function(searchText, options) {
   var options = {sort: {isoScore: -1}, limit: 20};
   
