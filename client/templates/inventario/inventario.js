@@ -29,7 +29,7 @@ Template.inventario.events({
       	//name = name.replace(/\s|ó|ñ|í|ì/gi,''); //quito los espacios, para que se guarde el key correctamente en db
       	//var value = $(event.currentTarget).val(); //toma el val del input que se está editando
       	//var info = _.object([name], [value]); //convierto mi key value en un objeto para insertar en mi base de datos
-        Inventario.insert({
+        var id = Inventario.insert({
           Descripcion: "Lechuga Iceberg",
           Linea: "Precortados",
           Stock: "10",
@@ -39,6 +39,8 @@ Template.inventario.events({
           PrecioUnitario: 50,
           ValorDeStock: 100
         });
+        var ruta = '/inventario/'+id;
+        Router.go(ruta);
       	//console.log(text); //compruebo los datos
       	//guardado(event.currentTarget); // función que muestra el mensaje de guardado correctamente
     },
