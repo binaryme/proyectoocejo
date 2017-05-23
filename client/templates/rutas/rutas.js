@@ -17,12 +17,14 @@ Template.rutas.events({
       var id = Rutas.find().count();
       var ordenes = Rutas.insert({
           numRuta: id, 
-          notas: 'Espacio para agregar notas de entrega', 
-          cliente: 'Cliente', 
-          sucursal: 'Sucursal',  
-          date: new Date(),
-          orden: null
+          zona: 'Country', 
+          ciudad: 'Monterrey', 
+          ordenes: 0,
+          notas: 'Espacio para agregar notas de entregado',  
+          date: new Date()
       });
+      var ruta = '/ruta/'+ordenes;
+      Router.go(ruta);
     },
     'click tr.ruta': function(event, template)
     {

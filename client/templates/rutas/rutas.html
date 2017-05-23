@@ -24,9 +24,10 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>Número de Ruta</th>
-                  <th>Cliente</th>
-                  <th>Sucursal</th>
-                  <th>Orden Asignada</th>
+                  <th>Zona</th>
+                  <th>Ciudad</th>
+                  <th>Ordenes Contenidas</th>
+                  <th>Fecha</th>
                 </tr>
                 {{#each rutas}}
                   {{> RutaOuter}}
@@ -43,8 +44,9 @@
 <template name="RutaOuter">
   <tr class="ruta">
     <td>{{numRuta}}</td>
-    <td>{{cliente}}</td>
-    <td>{{sucursal}}</td>
-    <td>{{orden}}</td>
+    <td>{{zona}}</td>
+    <td>{{ciudad}}</td>
+    <td>{{ordenes}}</td>
+    <td>{{date}}</td>
   </tr>
 </template>

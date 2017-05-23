@@ -2,13 +2,8 @@ Meteor.subscribe("ordenes");
 
 Template.RutaContenido.helpers({
   listaOrdenes: function () {
-      return Ordenes.find({});
-   },
-   ordenSelected: function()
-    {
-        var ruta = Rutas.findOne({_id: Router.current().params._id});
-        return Ordenes.findOne({_id: ruta.orden});
-    },
+      return Ordenes.find({ruta: Router.current().params._id});
+   }
 });
 
 Template.RutaContenido.events({

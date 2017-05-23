@@ -3,6 +3,7 @@
 /*****************************************************************************/
 Meteor.subscribe('users');
 Meteor.subscribe('star_products');
+Meteor.subscribe('rutas');
 
 Template.ProductoAgregar.events({
 	'click .add': function(event, template)
@@ -67,13 +68,29 @@ Template.OrdenHeader.events({
       Ordenes.update(Router.current().params._id, {
         $set: { cliente: id}
       });
+    },
+    'change select#ruta': function(event) 
+    {
+      event.preventDefault();
+      var id = $('[name=RutaAsignada]').val();
+      Ordenes.update(Router.current().params._id, {
+        $set: { ruta: id}
+      });
     }
 });
 
 Template.OrdenHeader.helpers({
   listaClientesOrden: function () {
       return Meteor.users.find({});
-   }
+   },
+  listaRutas: function () {
+      return Rutas.find({});
+   },
+   rutaSelected: function()
+    {
+        var orden = Orden.findOne({_id: Router.current().params._id});
+        return Ruta.findOne({_id: orden.ruta});
+    }
 });
 
 Template.TablaInvoiceItem.events({
