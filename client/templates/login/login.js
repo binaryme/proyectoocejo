@@ -26,7 +26,7 @@ Template.registro.events({
         var permiso = Session.get('TipoCuenta');
         console.log(permiso);
         Meteor.call('creaCuenta', email, password, nombre, cliente, permiso);
-        Router.go('clientes')
+        Router.go('clientes');
     },
     'change select': function(event){
        event.preventDefault();
