@@ -20,9 +20,8 @@ Template.ordenes.events({
           descripcion: 'Orden de ejemplo', 
           cliente: 'Cliente ejemplo', 
           sucursal: 'Sucursal ejemplo',  
-          date: new Date(),
-          proveedor: Meteor.user().profile.proveedor,
-          direccionproveedor: Meteor.user().profile.direccion
+          date: moment().format('YYYY-MM-DD'),
+          proveedor: Meteor.userId()
       });
       var ruta = '/orden/'+orden;
       Router.go(ruta);

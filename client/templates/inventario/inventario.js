@@ -1,25 +1,42 @@
-/*
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+
+Template.inventario.onCreated( () => {
+  Template.instance().uploading = new ReactiveVar( false );
 });
 
+/*
 Template.hello.helpers({
   counter() {
     return Template.instance().counter.get();
   },
 });
 */
+
 Template.inventario.events({
     'click a.guardar-como-pdf': function(event, template) 
     {
-      var nameFile = 'fileDownloaded.csv';
+      var nameFile = 'productosExportados.csv';
       Meteor.call('download', function(err, fileContent) {
         if(fileContent){
           var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
           saveAs(blob, nameFile);
         }   
       });    
+    },
+    'change [name="uploadCSV"]': function( event, template ) {
+      template.uploading.set( true );
+        Papa.parse( event.target.files[0], {
+        header: true,
+        complete( results, file ) {
+          Meteor.call( 'parseUpload', results.data, ( error, response ) => {
+            if ( error ) {
+              console.log( error.reason );
+            } else {
+              template.uploading.set( false );
+              Bert.alert( 'Upload complete!', 'success', 'growl-top-right' );
+            }
+          });
+        }
+      });
     },
   	'click a.guardar': function(event, template) 
   	{
@@ -35,7 +52,7 @@ Template.inventario.events({
           Stock: "10",
           Imagen: "",
           Etiqueta: "Mr. Lucky",
-          FechaDeRegistro: moment().format('DD-MM-YYYY HH:mm:ss'),
+          FechaDeRegistro: moment().format('YYYY-MM-DD'),
           PrecioUnitario: 50,
           ValorDeStock: 100
         });

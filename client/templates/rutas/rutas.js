@@ -10,6 +10,11 @@ Template.hello.helpers({
   },
 });
 */
+
+Template.rutas.onRendered(function () {
+    Session.set('fecha', moment().format('YYYY-MM-DD'));
+});
+
 Template.rutas.events({
   	'click a.guardar': function(event, template) 
   	{
@@ -21,10 +26,16 @@ Template.rutas.events({
           ciudad: 'Monterrey', 
           ordenes: 0,
           notas: 'Espacio para agregar notas de entregado',  
-          date: new Date()
+          date: moment().format('YYYY-MM-DD')
       });
       var ruta = '/ruta/'+ordenes;
       Router.go(ruta);
+    },
+    'change .daterutes': function(event, template)
+    {
+      event.preventDefault();
+      var fecha = $('[name=fecha]').val();
+      Session.set('fecha',fecha);
     },
     'click tr.ruta': function(event, template)
     {

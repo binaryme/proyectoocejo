@@ -25,6 +25,7 @@
       {{> OrdenTotal}}
       <!-- this row will not appear when printing -->
       {{> ListaProductos}}
+      {{> back}}
   </section>
 </template>
 <template name="OrdenHeader">
@@ -48,25 +49,29 @@
     </div>
     <!-- /.col -->
     <div class="col-sm-4 invoice-col">
-      Asignar Cliente
-        <select name="ClienteAsignado"  id="cliente" class="form-control">
-          {{#each listaClientesOrden}}
-            <option value="{{_id}}">Nombre: {{profile.nombre}} | Cliente: {{profile.cliente}} | Sucursal: {{profile.sucursal}}</option>
-          {{/each}}
-        </select>
-      <br>
       Asignar Ruta
       <select name="RutaAsignada"  id="ruta" class="form-control">
+      {{#with rutaSelected}}
+          <option selected value="{{_id}}">{{zona}} | {{ciudad}}</option>
+      {{/with}}
+        <option>Seleccionar Ruta</option>
         {{#each listaRutas}}
           <option value="{{_id}}">{{zona}} | {{ciudad}}</option>
         {{/each}}
       </select>
     </div>
-    <!-- /.col -->
     <div class="col-sm-4 invoice-col">
-
+      Asignar Cliente
+      <select name="ClienteAsignado"  id="cliente" class="form-control">
+      {{#with listaClientesSelected}}
+          <option selected value="{{_id}}">{{profile.nombre}}</option>
+      {{/with}}
+        <option>Seleccionar Cliente</option>
+        {{#each listaClientesOrden}}
+          <option value="{{_id}}">{{profile.nombre}}</option>
+        {{/each}}
+      </select>
     </div>
-    <!-- /.col -->
   </div>
   <!-- /.row -->
 </template>

@@ -35,3 +35,9 @@ var delay = (function(){
     timer = setTimeout(callback, ms);
   };
 })();
+
+Template.back.events({
+  'click .backbutton': function(event, template) {
+      history.go(-1);
+    }
+})

@@ -83,14 +83,23 @@ Template.OrdenHeader.helpers({
   listaClientesOrden: function () {
       return Meteor.users.find({});
    },
-  listaRutas: function () {
+   listaClientesSelected: function()
+   {
+      var orden = Ordenes.findOne({_id: Router.current().params._id});
+      var users = Meteor.users.findOne({_id: orden.cliente});
+      console.log(users._id);
+      return users;
+   },
+   listaRutas: function () {
       return Rutas.find({});
    },
    rutaSelected: function()
-    {
-        var orden = Orden.findOne({_id: Router.current().params._id});
-        return Ruta.findOne({_id: orden.ruta});
-    }
+   {
+      var orden = Ordenes.findOne({_id: Router.current().params._id});
+      var rutas = Rutas.findOne({_id: orden.ruta});
+      console.log(rutas._id);
+      return rutas;
+   }
 });
 
 Template.TablaInvoiceItem.events({

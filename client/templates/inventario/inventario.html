@@ -20,6 +20,10 @@
             <div class="clearfix">
               <a href="#" class="btn btn-block btn-info btn-flat pull-left guardar">Crear nuevo producto</a>
               <a href="#" class="btn btn-block btn-info btn-flat pull-left guardar-como-pdf">Convertir a Excel</a>
+                {{#unless uploading}}
+                  <input class="btn btn-block btn-info btn-flat pull-left" type="file" name="uploadCSV" >
+                {{else}}
+                {{/unless}}
             </div>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
@@ -43,6 +47,7 @@
           <!-- /.box -->
         </div>
       </div>
+      {{> back}}
     </section>
     {{> CrearProducto}} <!-- modal crear producto -->
 </template>
@@ -51,7 +56,7 @@
       <td>{{Descripcion}}</td>
       <td>{{Linea}}</td>
       <td>{{Stock}}</td>
-      <td><img src="{{fotoProducto}}" class="img-responsive mh50" alt="{{nombreProducto}}"></td>
+      <td><img src="/Lechuga Ocejo@1x.svg" class="img-responsive mh50" alt="{{nombreProducto}}"></td>
       <td>{{Etiqueta}}</td>
       <td>{{FechaDeRegistro}}</td>
       <td>{{PrecioUnitario}}</td>
