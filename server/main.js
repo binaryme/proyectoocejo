@@ -1,6 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
+  UploadServer.init({
+      tmpDir: process.env.PWD + '/public/images/tmp',
+      uploadDir: process.env.PWD + '/public/images'
+    });
 });
 
 SearchSource.defineSource('inventario', function(searchText, options) {
