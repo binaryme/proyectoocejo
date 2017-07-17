@@ -29,6 +29,17 @@ table tr {
     border-color: #5E8039!important;
 }
 
+.green-box {
+    background-color: #5E8039!important;
+    border-color: white !important;
+}
+
+.white-text
+{
+	color: white;
+	text-align: center;
+}
+
 .mh50 {
 	max-height: 50px;
 }
