@@ -17,7 +17,7 @@ Template.InventarioInner.events({
       else {
         console.log("no borra la imágen");
       }
-    },
+    }
 });
 Template.fileManager.helpers({
   images: function() {

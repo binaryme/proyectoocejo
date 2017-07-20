@@ -23,15 +23,19 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="tel" class="form-control" name="cliente" placeholder="Cliente">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <label>Elige tu Sucursal</label>
+        <select name="cliente" class="form-control">
+          <option>Cumbres</option>
+          <option>Country</option>
+          <option>Valle</option>
+        </select>
       </div>
       <div class="form-group has-feedback">
         <label>Elige el tipo de cuenta a crear</label>
-        <select class="form-control">
-          <option name="cliente">Cliente</option>
-          <option name="trabajador">Trabajador</option>
-          <option name="administrador">Administrador</option>
+        <select name="cuenta" class="form-control">
+          <option value="cliente">Cliente</option>
+          <option value="trabajador">Trabajador</option>
+          <option value="administrador">Administrador</option>
         </select>
       </div>
       <div class="row">

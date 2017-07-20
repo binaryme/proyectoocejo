@@ -7,14 +7,14 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{currentUser.profile.image}}" class="user-image" alt="User Image">
+              <img src="{{#if currentUser.profile.image}}{{currentUser.profile.image}}{{else}}/images/user.jpg{{/if}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{currentUser.profile.nombre}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{currentUser.profile.image}}" class="img-circle" alt="User Image">
+                <img src="{{#if currentUser.profile.image}}{{currentUser.profile.image}}{{else}}/images/user.jpg{{/if}}" class="img-circle" alt="User Image">
 
                 <p>
                   {{currentUser.profile.nombre}}
@@ -24,12 +24,14 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                   <input type='file' name='…' class='fotoPerfil display-hidden'>
-                  <a href="#" class="btn btn-default btn-flat btn-block cambiar-perfil">Cambiar foto perfil</a>
-                  <a href="/registro" class="btn btn-default btn-flat btn-block">Crear nuevo usuario</a>
                   <a href="#" class="btn btn-default btn-flat cerrar-sesion btn-block">Cerrar sesión</a>
               </li>
             </ul>
           </li>
         </ul>
       </div>
+</template>
+
+<template name="back">
+  <button class="backbutton btn btn-info">Regresar</button>
 </template>

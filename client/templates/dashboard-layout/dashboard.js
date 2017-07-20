@@ -17,3 +17,13 @@ Template.hello.events({
   },
 });
 */
+Meteor.subscribe("users");
+
+Template.mainSidebar.helpers({
+  isAdmin() {
+  	if(Roles.userIsInRole(Meteor.userId(), 'Admin'))
+    	return true;
+    else
+    	return false; 
+  },
+});
