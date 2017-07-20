@@ -14,7 +14,7 @@ Template.InventarioInner.events({
         Inventario.remove({_id: this._id});
         Router.go("/inventario");
       }
-      else{
+      else {
         console.log("no borra la imágen");
       }
     },
