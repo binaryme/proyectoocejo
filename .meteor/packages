@@ -19,18 +19,14 @@ ecmascript@0.7.3              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.3            # Server-side component of the `meteor shell` command
 
 
-insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
-mfactory:admin-lte
 fortawesome:fontawesome
 iron:router
 accounts-password@1.3.6
 underscore@1.0.10
 alanning:roles
 cfs:standard-packages
-cfs:gridfs
 babrahams:editable-text
 reywood:publish-composite
-dbernhard:cfs-file-manager
 meteortoys:allthings
 http
 momentjs:moment
@@ -40,3 +36,11 @@ lfergon:exportcsv
 meteorhacks:search-source
 meteorhacks:ssr
 check
+meteorhacks:npm
+
+
+npm-container
+cfs:gridfs
+lamatyus:adminlte
+twbs:bootstrap
+tomi:upload-server
