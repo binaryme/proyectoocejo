@@ -27,6 +27,7 @@
                    <th>Descripción de orden</th>
                    <th>Cliente</th>
                    <th>Sucursal</th>
+                   <th>Estatus</th>
                   </tr>
                   {{#each ordenes}}
                     {{> OrdenOuter}}
@@ -49,6 +50,7 @@
       <td>{{descripcion}}</td>
       <td>{{cliente}}</td>
       <td>{{sucursal}}</td>
+      <td>{{estatus}}</td>
   </tr>
 </template>
 <template name="nuevaOrden">

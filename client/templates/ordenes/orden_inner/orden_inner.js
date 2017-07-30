@@ -164,7 +164,7 @@ Template.OrdenTotal.helpers({
       var userItemsPrices = _.pluck(userItems, "ValorDelPedido");
       // compute the sum using a simple array reduction
       return _.reduce(userItemsPrices, function(sum, price){
-        return sum + parseFloat(price) * 1.16;
+        return sum + Math.round(parseFloat(price*1.16));
       }, 0);
   },
 });
@@ -203,6 +203,13 @@ Template.ListaProductos.events({
     console.log(text);
     PackageSearch.search(text);
   }, 200)
+});
+
+Template.OrdenContenido.events({
+  'click .printpage': function(event, template)
+      {
+          window.print();
+      }
 });
 
 /*****************************************************************************/

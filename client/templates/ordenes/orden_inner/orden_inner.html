@@ -26,6 +26,7 @@
       <!-- this row will not appear when printing -->
       {{> ListaProductos}}
       {{> back}}
+      <button class="printpage btn btn-default pull-right">Imprimir Orden</button>
   </section>
 </template>
 <template name="OrdenHeader">
@@ -45,6 +46,8 @@
         {{> editableText collection="ordenes" field="proveedor" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
         <strong>Dirección</strong><br>
         {{> editableText collection="ordenes" field="direccionproveedor" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
+        <strong>Estatus</strong><br>
+        {{> editableText collection="ordenes" field="estatus" acceptEmpty=true substitute='<i class="fa fa-pencil"></i>'}}<br>
       </address>
     </div>
     <!-- /.col -->

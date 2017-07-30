@@ -18,7 +18,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Ordenes</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{countOrdenes}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -27,11 +27,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-sign-out"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-truck"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Salidas</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Rutas</span>
+              <span class="info-box-number">{{countRutas}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -48,7 +48,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Clientes</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-number">{{countClientes}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -61,7 +61,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Inventario</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number">{{countInventario}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -98,47 +98,13 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-success">Entregado</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-warning">Pendiente</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-danger">En proceso</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-info">En proceso</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-warning">Pendiente</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-danger">En proceso</span></td>
-
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Caja de lechugas</td>
-                    <td><span class="label label-success">Entregado</span></td>
-                  </tr>
+                  {{#each listaOrdenes}}
+                    <tr>
+                      <td><a href="/orden/{{_id}}">{{_id}}</a></td>
+                      <td>{{descripcion}}</td>
+                      <td><span class="label label-warning">{{estatus}}</span></td>
+                    </tr>
+                  {{/each}}
                   </tbody>
                 </table>
               </div>
@@ -146,8 +112,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
-              <a href="" class="btn btn-sm btn-info btn-flat pull-left">Abrir nueva orden</a>
-              <a href="" class="btn btn-sm btn-default btn-flat pull-right">Ver todas las ordenes</a>
+              <a href="/ordenes" class="btn btn-sm btn-default btn-flat pull-right">Ver todas las ordenes</a>
             </div>
             <!-- /.box-footer -->
           </div>
@@ -156,4 +121,4 @@
         </div>
       <!-- /.row -->
       </section>
-</template>
+</template> 

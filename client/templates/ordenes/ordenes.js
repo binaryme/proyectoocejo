@@ -21,6 +21,7 @@ Template.ordenes.events({
           cliente: 'Cliente ejemplo', 
           sucursal: 'Sucursal ejemplo',  
           date: moment().format('YYYY-MM-DD'),
+          estatus: 'Pendiente',
           proveedor: Meteor.userId()
       });
       var ruta = '/orden/'+orden;

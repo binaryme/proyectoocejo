@@ -60,7 +60,8 @@
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
         {{#if isAdmin}}
-          {{> buttonSidebar titulo="Rutas" icono="fa fa-truck" url="/rutas"}}   
+          {{> buttonSidebar titulo="Rutas" icono="fa fa-truck" url="/rutas"}}
+          {{> buttonSidebar titulo="Ordenes" icono="fa fa-truck" url="/ordenes"}}   
           {{> buttonSidebar titulo="Productos" icono="fa fa-cube" url="/inventario"}}
           {{> treeview titulo="Clientes" icono="fa fa-users" li1="Clientes" li2="Nuevo cliente" href1="/clientes" href2="/registro"}}
         {{else}}
