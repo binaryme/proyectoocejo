@@ -26,7 +26,7 @@ Template.InventarioInner.helpers({
   imagenProducto: function () {
     var producto = Inventario.findOne({_id: Router.current().params._id});
     if(producto.Imagen)
-      return Images.findOne({_id: producto.Imagen});
+      return Images.find({_id: producto.Imagen});
     else
     return false;
   }

@@ -11,7 +11,7 @@
         <div class="col-md-5"> 
         	<p class="text-center mt30">
             {{#if Template.subscriptionsReady}}  
-        		<img class="cambiar-foto-producto img-responsive" src="{{#with imagenProducto}}{{#if imagenProducto}}{{file.link}}{{else}}/Lechuga Ocejo@1x.svg{{/if}}{{/with}}" alt="lechuga">
+        		<img class="cambiar-foto-producto img-responsive" src="{{#each file in imagenProducto.each}}{{#if imagenProducto}}{{file.link}}{{else}}/Lechuga Ocejo@1x.svg{{/if}}{{/each}}" alt="lechuga">
             {{/if}}
             {{> uploadForm}}
         	</p>                                          
