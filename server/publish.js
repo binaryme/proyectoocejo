@@ -2,6 +2,9 @@
 Meteor.publish('inventario', function () {
   return Inventario.find();
 });
+Meteor.publish('images', function () {
+  return Images.find();
+});
 Meteor.publish('star_products', function () {
   return StarProducts.find();
 });

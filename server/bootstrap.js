@@ -1,10 +1,10 @@
 Meteor.startup(function () {
 	UploadServer.init({
-    	tmpDir: process.env.PWD + '/tmp',
-    	uploadDir: process.env.PWD + '/tmp/'
+    	tmpDir: process.env.PWD + '/public/images/tmp',
+    	uploadDir: process.env.PWD + '/public/images'
   	});
   	if (Meteor.isCordova) 
   	{
-    	Uploader.uploadUrl = Meteor.absoluteUrl("/tmp/"); // Cordova needs absolute URL
+    	Uploader.uploadUrl = Meteor.absoluteUrl("/public/images"); // Cordova needs absolute URL
   	}
 });
