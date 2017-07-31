@@ -11,9 +11,9 @@
         <div class="col-md-5"> 
         	<p class="text-center mt30">
             {{#if Template.subscriptionsReady}}  
-        		<img class="cambiar-foto-producto img-responsive" src="/Lechuga Ocejo@1x.svg" alt="lechuga">
+        		<img class="cambiar-foto-producto img-responsive" src="{{#with imagenProducto}}{{#if imagenProducto}}{{file.link}}{{else}}/Lechuga Ocejo@1x.svg{{/if}}{{/with}}" alt="lechuga">
             {{/if}}
-            <input type='file' name='…' class='fotoProducto display-hidden'>
+            {{> uploadForm}}
         	</p>                                          
         </div>
         <div class="col-md-7">
@@ -31,14 +31,19 @@
             <br>
         </div><!-- col md 7-->
       </div>
+      {{> back}}
     </div><!-- row-->
     <!-- Button trigger modal -->
-    {{> fileManager}}
   </section>
 {{/each}}
 </template>
-<template name="fileManager">
-      <!-- Modal -->
+<template name="uploadForm">
+  {{#with currentUpload}}
+  {{else}}
+    <input type='file' id="fileInput" class='btn btn-info'>
+  {{/with}}
+</template>
+<!--template name="fileManager">
       <div class="modal fade" id="fileManager" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -80,5 +85,4 @@
           </div>
         </div>
       </div>
-       {{> back}}
-</template>
+</template-->
